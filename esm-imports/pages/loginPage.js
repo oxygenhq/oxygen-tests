@@ -3,6 +3,7 @@
 // the login-success.js / login-failure.js test cases that import this file - plus,
 // with this import, a 2-level import chain: test -> loginPage -> testData.
 import { LOGIN_URL } from '../support/testData';
+import actions from '../support/actions';
 
 export class LoginPage {
     async open() {
@@ -12,7 +13,7 @@ export class LoginPage {
     async login(username, password) {
         web.type('id=username', username);
         web.type('id=password', password);
-        web.click('css=button[type="submit"]');
+        actions.clickButton('css=button[type="submit"]');
     }
 
     async getFlashMessage() {
